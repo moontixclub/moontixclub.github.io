@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="emaillogin.css"> <!-- Отдельный файл стилей -->
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Вход по Email | Moontix</title>
+</head>
+<body>
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад на главную -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <div class="support-wrapper">
+        <div class="support-card">
+            
+            <!-- Переключатель Вход / Регистрация -->
+            <div class="auth-switcher">
+                <button id="toggle-login-btn" class="switcher-btn active" onclick="switchAuthMode('login')">Вход</button>
+                <button id="toggle-reg-btn" class="switcher-btn" onclick="switchAuthMode('register')">Регистрация</button>
+            </div>
+
+            <h2 id="auth-title">Авторизация по Email</h2>
+            <p id="auth-subtitle" class="support-subtitle">Введите вашу почту и пароль для входа на платформу Moontix</p>
+
+            <!-- Блок вывода ошибок -->
+            <div id="error-box"></div>
+
+            <form class="login-form" onsubmit="handleEmailAuth(event)">
+                <!-- Поле Имени (скрыто при входе) -->
+                <div class="input-group" id="name-group">
+                    <label for="user-name">Ваше имя / Никнейм</label>
+                    <input type="text" id="user-name" placeholder="Иван или Любой_Ник" autocomplete="off">
+                </div>
+
+                <!-- Поле Почты -->
+                <div class="input-group">
+                    <label for="user-email">Электронная почта</label>
+                    <input type="email" id="user-email" placeholder="example@mail.ru" required autocomplete="off">
+                </div>
+
+                <!-- Поле Пароля -->
+                <div class="input-group">
+                    <label for="user-password">Пароль</label>
+                    <input type="password" id="user-password" placeholder="Введите пароль" required autocomplete="off">
+                </div>
+
+                <button type="submit" id="submit-auth-btn" class="auth-submit-btn support-btn">Войти в аккаунт</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="emaillogin.js"></script> <!-- Отдельный файл логики -->
+</body>
+</html>

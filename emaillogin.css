@@ -1,0 +1,229 @@
+/* Оболочка центрирования формы */
+.support-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 40px 20px !important;
+}
+
+/* Белая закругленная карточка */
+.support-card {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 40px !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    text-align: center !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    box-sizing: border-box !important;
+}
+
+.support-card h2 {
+    color: #1a1a1a !important;
+    margin: 0 0 10px 0 !important;
+    font-size: 2rem !important;
+}
+
+.support-subtitle {
+    color: #666666 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 30px !important;
+}
+
+/* Красивый блок ошибок */
+#error-box {
+    color: #ef4444 !important;
+    background: #fee2e2 !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px !important;
+    font-size: 0.9rem !important;
+    display: none;
+    text-align: center !important;
+}
+
+/* ПЕРЕКЛЮЧАТЕЛЬ: ВХОД / РЕГИСТРАЦИЯ */
+.auth-switcher {
+    display: flex !important;
+    width: 100% !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-radius: 50px !important;
+    padding: 4px !important;
+    gap: 4px !important;
+    margin-bottom: 25px !important;
+    box-sizing: border-box !important;
+}
+
+.switcher-btn {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    padding: 8px 16px !important;
+    border-radius: 50px !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.switcher-btn:hover:not(.active) {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Активная вкладка переключателя */
+.switcher-btn.active {
+    background: #ffffff !important; /* Белая матовая подушка */
+    color: #4f46e5 !important; /* Яркий фиолетовый текст */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ВЕРТИКАЛЬНАЯ СТРУКТУРА ПОЛЕЙ ВВОДА */
+.login-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    width: 100% !important;
+}
+
+.input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.input-group label {
+    color: #333333 !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    padding-left: 4px !important;
+}
+
+.input-group input {
+    font-family: 'Minecraft', sans-serif !important;
+    background: #f5f5f7 !important;
+    border: 1px solid #e5e5e7 !important;
+    border-radius: 12px !important;
+    padding: 13px 16px !important;
+    color: #1a1a1a !important;
+    font-size: 1rem !important;
+    outline: none !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.input-group input:focus {
+    background: #ffffff !important;
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.15) !important;
+}
+
+/* Кнопка отправки на всю ширину карточки */
+.support-btn {
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+/* =======================================================
+   5. ПОЛНАЯ ПОЧИНКА КНОПКИ ВХОДА И РЕГИСТРАЦИИ (ПРИНУДИТЕЛЬНО)
+   ======================================================= */
+
+/* Применяем стили ко всем кнопкам внутри формы login-form */
+.login-form button,
+.login-form .auth-submit-btn,
+.login-form .submit-btn {
+    /* Полностью сбрасываем стандартный серый дизайн Windows */
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border: none !important;
+    outline: none !important;
+    
+    /* Размеры и ровное растягивание */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 30px !important;
+    margin-top: 20px !important;
+    box-sizing: border-box !important;
+    
+    /* Фирменное овальное скругление Moontix */
+    border-radius: 50px !important; 
+    cursor: pointer !important;
+    
+    /* Шрифты и выравнивание текста по центру */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important; /* Белый цвет букв */
+    
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Сочный фиолетово-синий градиент и объемное неоновое свечение */
+    background: linear-gradient(135deg, #6366f1, #4f46e5) !important; 
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4) !important;
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Эффект плавного приподнимания при наведении мыши */
+.login-form button:hover,
+.login-form .auth-submit-btn:hover,
+.login-form .submit-btn:hover {
+    background: linear-gradient(135deg, #5a5df0, #4338ca) !important;
+    transform: translateY(-2px) !important; /* Кнопка приподнимается */
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.55) !important; /* Тень становится ярче */
+}
+
+/* Эффект клика (кнопка утапливается) */
+.login-form button:active,
+.login-form .auth-submit-btn:active,
+.login-form .submit-btn:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.4) !important;
+}
+.back-to-home {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+    /* Текст и шрифт */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Стильная полупрозрачная плашка */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Округление и отступы */
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    transition: all 0.3s ease;
+    z-index: 100; /* Чтобы кнопка всегда была кликабельной поверх фона */
+}
+
+/* Эффект при наведении на кнопку «На главную» */
+.back-to-home:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.back-to-home:active {
+    transform: translateY(1px);
+}
