@@ -1,0 +1,151 @@
+/* Общая оболочка блока доната */
+.donate-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.donate-title {
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    margin-top: 200px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.donate-subtitle {
+    color: #a3a3a3;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* Сетка контейнера карточек */
+.tariffs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Чтобы на телефонах карточки переносились вниз */
+    justify-content: center;
+    gap: 30px; /* Отступ между карточками */
+    width: 100%;
+}
+
+/* Базовые общие стили для всех карточек */
+.tariff-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    height: 380px;
+    border-radius: 28px; /* Сильное мягкое закругление как на фото */
+    padding: 35px 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    
+    /* Вертикальное выравнивание контента внутри */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Эффект легкого приподнимания при наведении мыши */
+.tariff-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Полупрозрачный водяной знак (логотип) на заднем плане карточки */
+.tariff-watermark {
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 14rem;
+    font-weight: bold;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+/* Текстовые элементы внутри карточки */
+.tariff-type {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    z-index: 2;
+}
+
+.tariff-card h3 {
+    font-family: 'Minecraft', sans-serif !important;
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin: 0 0 15px 0;
+    z-index: 2;
+}
+
+.tariff-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    z-index: 2;
+    flex-grow: 1; /* Выталкивает цену строго в самый низ */
+}
+
+.tariff-price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: auto;
+    z-index: 2;
+}
+
+/* =======================================================
+   3. УНИКАЛЬНЫЕ ТЕМЫ ОФОРМЛЕНИЯ КАРТОЧЕК (ГРАДИЕНТЫ И НЕОН)
+   ======================================================= */
+
+/* Фиолетовая тема */
+.purple-theme {
+    background: linear-gradient(180deg, #37284d 0%, #1e162b 100%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
+.purple-theme:hover { box-shadow: 0 15px 35px rgba(139, 92, 246, 0.25); }
+.purple-theme .tariff-type { color: #a78bfa; }
+.purple-theme .tariff-desc { color: rgba(167, 139, 250, 0.6); }
+.purple-theme .tariff-watermark { color: rgba(139, 92, 246, 0.04); }
+.purple-theme .tariff-price { color: #c084fc; text-shadow: 0 0 10px rgba(192, 132, 252, 0.4); }
+
+/* Синяя тема */
+.blue-theme {
+    background: linear-gradient(180deg, #24304f 0%, #131a2b 100%);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+}
+.blue-theme:hover { box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25); }
+.blue-theme .tariff-type { color: #60a5fa; }
+.blue-theme .tariff-desc { color: rgba(96, 165, 250, 0.6); }
+.blue-theme .tariff-watermark { color: rgba(59, 130, 246, 0.04); }
+.blue-theme .tariff-price { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+
+/* Зеленая тема */
+.green-theme {
+    background: linear-gradient(180deg, #224333 0%, #12241b 100%);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+}
+.green-theme:hover { box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25); }
+.green-theme .tariff-type { color: #34d399; }
+.green-theme .tariff-desc { color: rgba(52, 211, 153, 0.6); }
+.green-theme .tariff-watermark { color: rgba(16, 185, 129, 0.04); }
+.green-theme .tariff-price { color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+
+.fun1 {
+    color: gray;
+}
+.funa2 {
+    color: #60a5fa;
+}

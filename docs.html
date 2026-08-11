@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="docs.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Документация | Moontix</title>
+</head>
+<body>
+    <!-- Эффект дождя -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад на главную -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <!-- Основной контейнер документации -->
+    <div class="docs-wrapper">
+        <div class="docs-container">
+            
+            <!-- Левое боковое меню (Категории) -->
+            <aside class="docs-sidebar">
+                <h2>Документация</h2>
+                <ul class="docs-menu">
+                    <li class="docs-menu-item active" onclick="switchTab('start')">🚀 С чего начать?</li>
+                    <li class="docs-menu-item" onclick="switchTab('commands')">⚙️ Команды сервера</li>
+                    <li class="docs-menu-item" onclick="switchTab('rules')">📜 Правила проекта</li>
+                </ul>
+            </aside>
+
+            <!-- Правая часть (Текстовый контент) -->
+            <main class="docs-content">
+                
+                <!-- Вкладка: С чего начать -->
+                <div id="tab-start" class="docs-tab-content active">
+                    <h1>🚀 Добро пожаловать на Moontix!</h1>
+                    <p class="docs-subtitle">Краткое руководство по подключению и первым шагам на сервере версии 1.17.1.</p>
+                    <hr>
+                    <h3>1. Подключение к серверу</h3>
+                    <p>Запустите Minecraft версии <strong>1.17.1</strong>, перейдите в раздел «Сетевая игра», нажмите «По адресу» и вставьте IP нашего сервера: <code class="docs-code">moontix.my-craft.cc</code>.</p>
+                    
+                    <h3>2. Авторизация на сервере</h3>
+                    <p>При первом входе вам необходимо зарегистрировать свой аккаунт с помощью команды в чате: <code class="docs-code">/reg [пароль] [повтор_пароля]</code>. При последующих заходах используйте команду: <code class="docs-code">/login [ваш_пароль]</code>.</p>
+                </div>
+
+                <!-- Вкладка: Команды сервера -->
+                <div id="tab-commands" class="docs-tab-content">
+                    <h1>⚙️ Полезные команды</h1>
+                    <p class="docs-subtitle">Список основных команд, которые пригодятся каждому игроку во время выживания.</p>
+                    <hr>
+                    <h3>🏠 Точки дома</h3>
+                    <ul>
+                        <li><code class="docs-code">/sethome [название]</code> — сохранить точку дома.</li>
+                        <li><code class="docs-code">/home [название]</code> — телепортироваться домой.</li>
+                        <li><code class="docs-code">/delhome [название]</code> — удалить точку дома.</li>
+                    </ul>
+                    <h3>🗺 Телепортация</h3>
+                    <ul>
+                        <li><code class="docs-code">/spawn</code> — вернуться на главный спавн сервера.</li>
+                        <li><code class="docs-code">/tpa [ник]</code> — отправить запрос на телепортацию к игроку.</li>
+                        <li><code class="docs-code">/tpaccept</code> — принять запрос на телепортацию.</li>
+                    </ul>
+                </div>
+
+                <!-- Вкладка: Правила проекта -->
+                <div id="tab-rules" class="docs-tab-content">
+                    <h1>📜 Свод правил сервера</h1>
+                    <p class="docs-subtitle">Нарушение данных правил карается немедленным ограничением доступа (бан/мут).</p>
+                    <hr>
+                    <h3>1. Игровой процесс</h3>
+                    <p>1.1. Запрещено использование любого стороннего софта, читов, макросов, дающих преимущество над другими игроками (X-Ray, Fly, KillAura и т.д.). <strong>[Бан навсегда]</strong></p>
+                    <p>1.2. Запрещена дестабилизация работы сервера, создание лаг-машин и использование багов игры. <strong>[Бан от 7 дней]</strong></p>
+                    
+                    <h3>2. Общение в чате</h3>
+                    <p>2.1. Запрещены оскорбления игроков, администрации, упоминание родственников в оскорбительном контексте, а также чрезмерный флуд и капс. <strong>[Мут от 30 минут]</strong></p>
+                    <p>2.2. Запрещена реклама сторонних игровых проектов, Discord-серверов или каналов без согласования. <strong>[Бан навсегда]</strong></p>
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Подвал (Копирайт) -->
+    <div class="moontixteamdoc2">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+
+    <!-- Логика переключения вкладок -->
+    <script>
+        function switchTab(tabId) {
+            // Скрываем все вкладки
+            document.querySelectorAll('.docs-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Убираем активный класс у всех кнопок меню
+            document.querySelectorAll('.docs-menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Показываем нужную вкладку
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Делаем кликнутую кнопку меню активной
+            // Находим элемент через событие
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

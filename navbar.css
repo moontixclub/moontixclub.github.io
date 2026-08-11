@@ -1,0 +1,118 @@
+.navbar1 {
+    padding: 15px 40px;
+    width: 100%;
+    height: 70%;
+}
+.navbar1 .container1 {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbarmenu1 li{
+    display: inline-block;
+
+}
+.navbarmenu1 li a{
+    direction: none;
+    color: rgb(216, 216, 216);
+    margin-left: 35px;
+    margin-top: 8px;
+    display: inline-block;
+
+}
+.warpnav1 {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 297px;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 12px 10px; 
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, .1);
+    border: 0.2px solid rgba(88, 88, 88, 0.3); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+}
+.btnlogin1 {
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.95rem;
+    margin-left: 25px !important;
+    color: rgb(255, 255, 255);
+    
+    /* 1. Делаем кнопку сильно округлой (как на скриншоте) */
+    border-radius: 20px; 
+    
+    /* 2. Фирменный сине-фиолетовый градиент и внутренний блик */
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    border: none;
+    
+    /* 3. Отступы, чтобы кнопка была вытянутой по бокам */
+    padding: 10px 23px; 
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Задел под иконку, если решите её добавить */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* 4. Тень кнопки и тонкая внутренняя светлая рамка сверху */
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35), 
+                inset 0 1px 1px rgba(110, 110, 110, 0.3);
+}
+
+/* Эффекты интерактивности при наведении */
+.btnlogin1:hover {
+    background: linear-gradient(135deg, #5a5df0, #4338ca);
+    transform: translateY(-1px); /* Легкий подъем при наведении */
+    box-shadow: 0 6px 16px #5a5df0, 
+                inset 0 1px 1px rgba(83, 83, 83, 0.4);
+}
+
+/* Эффект при клике */
+.btnlogin1:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+}
+/* Общая овальная подложка для языков */
+.lang-switcher {
+    display: inline-flex;
+    margin-left: 25px !important;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05); /* Очень легкий белый фон */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая рамка */
+    backdrop-filter: blur(8px); /* Размытие заднего плана */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 50px; /* Идеальный овал */
+    padding: 3px; /* Внутренний отступ для кнопок */
+    gap: 2px;
+    box-sizing: border-box;
+}
+
+/* Стили для каждой языковой кнопки */
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4); /* Неактивные языки слегка затемнены */
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: inherit; /* Унаследует гладкий шрифт или пиксельный */
+    padding: 6px 12px;
+    border-radius: 50px; /* Каждая кнопочка внутри тоже скругляется */
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект наведения на неактивный язык */
+.lang-btn:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* АКТИВНЫЙ ВЫБРАННЫЙ ЯЗЫК (Выделяется белой подложкой) */
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.15) !important; /* Белая матовая подушка */
+    color: #ffffff !important; /* Яркий белый текст */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,182 @@
+/* Оболочка документации */
+.docs-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Общий двухколоночный контейнер (стиль матового стекла) */
+.docs-container {
+    display: flex;
+    background: rgba(0, 0, 0, 0.45);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 550px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+/* Левая колонка - Меню */
+.docs-sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.docs-sidebar h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 0 0 25px 0;
+    font-family: 'Minecraft', sans-serif !important;
+}
+
+.docs-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Пункты бокового меню */
+.docs-menu-item {
+    color: #b3b3b3;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.docs-menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Активный пункт меню */
+.docs-menu-item.active {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Правая колонка - Текстовый контент */
+.docs-content {
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+    max-height: 600px;
+    overflow-y: auto; /* Внутренний скролл для длинных текстов */
+}
+
+/* Кастомизация скроллбара в контенте */
+.docs-content::-webkit-scrollbar { width: 6px; }
+.docs-content::-webkit-scrollbar-track { background: transparent; }
+.docs-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+
+/* Логика отображения вкладок */
+.docs-tab-content {
+    display: none; /* Все вкладки скрыты */
+}
+
+.docs-tab-content.active {
+    display: block; /* Показывается только активная */
+    animation: fadeInDocs 0.3s ease;
+}
+
+/* Анимация плавного появления текста */
+@keyframes fadeInDocs {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Оформление текстов внутри справки */
+.docs-content h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 0 0 8px 0;
+}
+
+.docs-subtitle {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    margin: 0 0 20px 0;
+}
+
+.docs-content hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+}
+
+.docs-content h3 {
+    color: #ff9f43; /* Красивые оранжевые подзаголовки */
+    font-size: 1.15rem;
+    margin: 25px 0 10px 0;
+}
+
+.docs-content p, .docs-content li {
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.docs-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* Выделение команд в рамку (как тег code) */
+.docs-code {
+    background: rgba(255, 159, 67, 0.15);
+    color: #ff9f43;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 159, 67, 0.2);
+}
+.back-to-home {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+    /* Текст и шрифт */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Стильная полупрозрачная плашка */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Округление и отступы */
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    transition: all 0.3s ease;
+    z-index: 100; /* Чтобы кнопка всегда была кликабельной поверх фона */
+}
+.moontixteamdoc2 {
+    color: rgb(158, 158, 158);
+    position: absolute;
+    top: 96%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}

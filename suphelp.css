@@ -1,0 +1,44 @@
+.moontixteam3 {
+    color: rgb(158, 158, 158);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.back-to-home {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+    /* Текст и шрифт */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Стильная полупрозрачная плашка */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Округление и отступы */
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    transition: all 0.3s ease;
+    z-index: 100; /* Чтобы кнопка всегда была кликабельной поверх фона */
+}
+
+/* Эффект при наведении на кнопку «На главную» */
+.back-to-home:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.back-to-home:active {
+    transform: translateY(1px);
+}

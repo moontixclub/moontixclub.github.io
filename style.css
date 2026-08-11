@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('icons/bg3.jpeg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0; 
+}
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы дождь не мешал кликать по элементам сайта */
+    z-index: 9999;        /* Отображаем поверх всего */
+}
+
+/* Стиль одной капли */
+.drop {
+    position: absolute;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.6)); /* Цвет капли */
+    width: 1px;          /* Ширина капли */
+    height: 50px;        /* Длина капли */
+    opacity: 0.7;
+    animation: fall linear infinite; /* Непрерывная анимация падения */
+}
+.new1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%); 
+}
+.moontixteam {
+    color: rgb(158, 158, 158);
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%); 
+}
+.play-btn {
+    margin-top: 230px;
+    padding: 12px 35px;
+    font-family: inherit; /* Наследует ваш красивый шрифт */
+    font-size: 1.2rem;
+    color: #fff;
+    position: absolute;
+    top: 2%;
+    left: 32%;
+    text-align: center;
+    background: #ff9f43; /* Теплый оранжевый цвет под фонари */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);
+}
+
+.play-btn:hover {
+    background: #ffb366;
+    transform: translateY(-2px); /* Легкий эффект приподнимания */
+    box-shadow: 0 6px 20px rgba(255, 159, 67, 0.6);
+}
+
+.play-btn:active {
+    transform: translateY(1px);
+}
+.hw2 {
+    color: #ff9f43;
+}
+li {
+    direction: none;
+    list-style-type: none;
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+}
+
+
+/* Анимация движения сверху вниз */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}

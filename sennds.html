@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="sennds.css"> <!-- Отдельный файл стилей -->
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Оповещения | Moontix</title>
+</head>
+<body>
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <div class="notifications-wrapper">
+        <div class="notifications-card">
+            <h2>Ваши уведомления</h2>
+            <p class="notifications-subtitle">Ответы от администрации и статус ваших обращений</p>
+
+            <!-- Контейнер для вывода списка ответов -->
+            <div id="notifications-container">
+                <!-- Сюда JavaScript вставит ответы -->
+            </div>
+        </div>
+    </div>
+
+    <div class="moontixteam990">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+
+    <!-- Подключение логики -->
+    <script src="sennds.js"></script> <!-- Отдельный файл логики -->
+</body>
+</html>

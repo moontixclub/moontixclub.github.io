@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="suppot.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Поддержка | Moontix</title>
+</head>
+<body>
+    <!-- Контейнер для эффекта дождя -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад на главную -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <div class="support-wrapper">
+        <div class="support-card">
+            <h2>Техническая поддержка</h2>
+            <p class="support-subtitle">Возникли проблемы на сервере? Напишите нам, и мы поможем!</p>
+
+            <!-- Уведомление об успешной отправке (скрыто по умолчанию) -->
+            <div id="support-success" style="color: #10b981; margin-bottom: 20px; font-size: 0.95rem; font-weight: 500; display: none; text-align: center;">
+                🚀 Ваше обращение успешно отправлено администрации!
+            </div>
+
+            <!-- Форма тикета -->
+            <form class="support-form" onsubmit="sendSupportTicket(event)">
+                
+                <!-- Поле ввода Ника -->
+                <div class="input-group">
+                    <label for="support-username">Ваш игровой ник</label>
+                    <input type="text" id="support-username" placeholder="Введите ваш ник" required autocomplete="off">
+                </div>
+
+                <!-- Выбор категории проблемы -->
+                <div class="input-group">
+                    <label for="support-category">Категория проблемы</label>
+                    <select id="support-category" required>
+                        <option value="" disabled selected>Выберите тему обращения...</option>
+                        <option value="donate">Проблема с донатом / оплатой</option>
+                        <option value="auth">Не могу войти / забыл пароль</option>
+                        <option value="bug">Нашел баг / ошибку на сервере</option>
+                        <option value="player">Жалоба на игрока / читера</option>
+                        <option value="other">Другой вопрос</option>
+                    </select>
+                </div>
+
+                <!-- Текст обращения -->
+                <div class="input-group">
+                    <label for="support-message">Опишите вашу проблему</label>
+                    <textarea id="support-message" rows="5" placeholder="Напишите как можно подробнее..." required></textarea>
+                </div>
+
+                <!-- Фирменная фиолетовая кнопка отправки -->
+                <button type="submit" class="auth-submit-btn support-btn">Отправить обращение</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="moontixteam78">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+    <script src="suppot.js"></script>
+</body>
+</html>

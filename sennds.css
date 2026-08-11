@@ -1,0 +1,187 @@
+/* Центрирование контента */
+.notifications-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80px 20px 40px 20px;
+}
+
+/* Белая закругленная карточка */
+.notifications-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 40px;
+    width: 100%;
+    max-width: 650px; /* Оптимальная ширина для чтения переписки */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.notifications-card h2 {
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+}
+
+.notifications-subtitle {
+    color: #666666;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Главный вертикальный контейнер уведомлений со скроллом */
+#notifications-container {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Элемент списка (одно обращение) */
+.notification-item {
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid #e5e5e7;
+    transition: all 0.3s ease;
+}
+
+/* Цвет рамки в зависимости от статуса ответа */
+.notification-item.status-waiting {
+    border-left: 5px solid #ef4444; /* Красная полоса, если ответ ожидается */
+    background: #fafafa;
+}
+
+.notification-item.status-answered {
+    border-left: 5px solid #10b981; /* Зеленая полоса, если админ ответил */
+    background: rgba(16, 185, 129, 0.02);
+}
+
+/* Шапка карточки уведомления */
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.notification-date {
+    color: #888888;
+}
+
+/* Внутриигровые плашки статусов */
+.status-waiting .notification-badge {
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.status-answered .notification-badge {
+    background: #d1fae5;
+    color: #10b981;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* Текстовые блоки */
+.notification-body p {
+    margin: 5px 0 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.player-question {
+    margin-bottom: 15px;
+}
+
+.player-question strong {
+    color: #4b5563;
+}
+
+.player-question p {
+    color: #1f2937;
+}
+
+/* Блок ответа администрации */
+.admin-answer {
+    background: #f3f4f6;
+    padding: 12px 15px;
+    border-radius: 10px;
+}
+
+.status-answered .admin-answer {
+    background: rgba(99, 102, 241, 0.06); /* Если ответили — блок слегка фиолетовый */
+}
+
+.admin-answer strong {
+    color: #4f46e5; /* Выделение фиолетовым */
+}
+
+.admin-answer p {
+    color: #374151;
+}
+
+.no-notifications {
+    color: #666;
+    font-style: italic;
+    padding: 40px 0;
+}
+
+/* Скроллбар */
+#notifications-container::-webkit-scrollbar { width: 6px; }
+#notifications-container::-webkit-scrollbar-track { background: transparent; }
+#notifications-container::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.1); border-radius: 10px; }
+.back-to-home {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+    /* Текст и шрифт */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Стильная полупрозрачная плашка */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Округление и отступы */
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    transition: all 0.3s ease;
+    z-index: 100; /* Чтобы кнопка всегда была кликабельной поверх фона */
+}
+
+/* Эффект при наведении на кнопку «На главную» */
+.back-to-home:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.back-to-home:active {
+    transform: translateY(1px);
+}
+.moontixteam990 {
+    color: rgb(158, 158, 158);
+    position: absolute;
+    top: 96%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}

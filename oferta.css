@@ -1,0 +1,213 @@
+/* Оболочка для центрирования оферты */
+.oferta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80px 20px 40px 20px; /* Сделали отступ сверху, чтобы кнопка "На главную" не наезжала */
+}
+
+/* Белая закругленная карточка оферты */
+.oferta-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 40px;
+    width: 100%;
+    max-width: 800px; /* Окно шире, чем у логина, чтобы текст удобно читался */
+    text-align: left; /* Текст оферты выравниваем по левому краю */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.oferta-card h1 {
+    color: #1a1a1a;
+    font-size: 1.8rem;
+    margin: 0 0 5px 0;
+    text-align: center;
+    font-family: inherit;
+}
+
+.oferta-date {
+    color: #888888;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Блок со скроллом для длинного текста */
+.oferta-text-content {
+    max-height: 400px; /* Фиксированная высота для прокрутки текста */
+    overflow-y: auto;  /* Включаем вертикальный скролл */
+    padding-right: 15px;
+    margin-bottom: 30px;
+}
+
+.oferta-text-content h3 {
+    color: #4f46e5; /* Фиолетовые аккуратные заголовки разделов */
+    font-size: 1.1rem;
+    margin: 20px 0 10px 0;
+}
+
+.oferta-text-content p {
+    color: #333333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+/* Кастомизация полосы прокрутки (скроллбара), чтобы она выглядела красиво */
+.oferta-text-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.oferta-text-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.oferta-text-content::-webkit-scrollbar-thumb {
+    background: #6366f1; /* Фиолетовый ползунок под цвет кнопок */
+    border-radius: 10px;
+}
+
+.oferta-text-content::-webkit-scrollbar-thumb:hover {
+    background: #4f46e5;
+}
+
+/* Кнопка согласия по центру внизу */
+.oferta-footer-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.oferta-footer-btn .auth-submit-btn {
+    width: auto;
+    padding: 12px 40px;
+    font-size: 1rem;
+}
+/* Современная градиентная кнопка согласия */
+.oferta-agree-btn {
+    font-family: 'Minecraft', sans-serif !important; /* Используем ваш шрифт */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    
+    /* Сочный фиолетово-синий градиент */
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    
+    /* Размеры и округление */
+    padding: 14px 45px;
+    border: none;
+    border-radius: 50px; /* Идеально овальная форма */
+    
+    cursor: pointer;
+    text-transform: uppercase; /* Делает текст заглавными буквами */
+    letter-spacing: 0.5px; /* Небольшое расстояние между буквами */
+    
+    /* Плавность всех анимаций */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Эффект объема: внешняя фиолетовая тень и тонкий внутренний белый блик сверху */
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффект при наведении мыши */
+.oferta-agree-btn:hover {
+    /* Градиент становится чуть ярче */
+    background: linear-gradient(135deg, #5a5df0, #4338ca);
+    
+    /* Кнопка плавно приподнимается вверх */
+    transform: translateY(-2px);
+    
+    /* Тень становится больше и мягче, создавая эффект свечения */
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.55), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Эффект при клике (нажатии) на кнопку */
+.oferta-agree-btn:active {
+    /* Кнопка утапливается вниз */
+    transform: translateY(1px);
+    
+    /* Тень уменьшается */
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.4);
+}
+.auth-submit-btn {
+    width: 100%; /* Занимает всю ширину в форме входа */
+    max-width: 320px; /* Ограничение ширины, чтобы в оферте она не была слишком гигантской */
+    padding: 14px 30px;
+    margin-top: 15px;
+    
+    font-family: 'Minecraft', sans-serif !important; /* Ваш шрифт */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    
+    /* Красивый фиолетово-синий градиент */
+    background: linear-gradient(135deg, #6366f1, #4f46e5); 
+    border: none;
+    border-radius: 50px; /* Идеально закругленные края */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Объемная тень и внутренний световой блик сверху */
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффект при наведении мыши */
+.auth-submit-btn:hover {
+    background: linear-gradient(135deg, #5a5df0, #4338ca);
+    transform: translateY(-2px); /* Плавный подъем вверх */
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Эффект при нажатии */
+.auth-submit-btn:active {
+    transform: translateY(1px); /* Эффект утапливания */
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.4);
+}
+.back-to-home {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+    /* Текст и шрифт */
+    font-family: 'Minecraft', sans-serif !important;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Стильная полупрозрачная плашка */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Округление и отступы */
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    transition: all 0.3s ease;
+    z-index: 100; /* Чтобы кнопка всегда была кликабельной поверх фона */
+}
+.moontixteam2 {
+    color: rgb(158, 158, 158);
+    position: absolute;
+    top: 94%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%); 
+}

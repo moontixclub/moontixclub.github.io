@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="hovers.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Moontix - Вход</title>
+</head>
+<body>
+    <!-- Эффект дождя -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад на главную без стрелочки -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <!-- Белое закругленное окно авторизации -->
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>Авторизация</h2>
+            <p class="login-subtitle">Войдите в свой личный кабинет Moontix</p>
+            
+            <!-- Место для вывода ошибки ввода -->
+            <div id="error-box" style="color: #ef4444; margin-bottom: 15px; font-size: 0.9rem; font-weight: 500; display: none;"></div>
+
+            <!-- Форма без бэкенда, обрабатывается через JS -->
+             <div class="login-form">
+    <!-- Поле ввода Ника -->
+    <div class="input-group">
+        <label for="username">Игровой ник</label>
+        <input type="text" id="username" placeholder="Введите ваш ник" required autocomplete="off" oninput="checkNicknameForStaff()">
+    </div>
+
+    <!-- Поле ввода Пароля (чистый тег, без style="...") -->
+    <div class="input-group" id="password-group">
+        <input type="password" id="password" placeholder="Введите ваш пароль" autocomplete="off">
+    </div>
+
+    <!-- Кнопка Войти -->
+        <button type="button" class="auth-submit-btn" onclick="startFakeLogin()">Войти в аккаунт</button>
+    </div>
+</div>
+</div>
+
+    <!-- Копирайт -->
+    <div class="moontixteam">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+
+    <script src="script3.js"></script>
+    <script src="adminlist.js"></script>
+</body>
+</html>

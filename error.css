@@ -1,0 +1,105 @@
+/* Подключение вашего шрифта Minecraft */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/font1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Minecraft', sans-serif !important;
+    background-color: #0f1115;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Размытый фон */
+.background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 17, 21, 0.45), rgba(15, 17, 21, 0.85)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* Контейнер в стиле Moontix */
+.error-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(26, 29, 36, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Оранжевая цифра 404 */
+.error-code {
+    font-size: 90px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, #ff933b, #ff5e3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(255, 147, 59, 0.4));
+}
+
+.error-title {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.error-message {
+    font-size: 14px;
+    color: #a4a9b3;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* Кнопка */
+.btn-home {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff933b, #e67213);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 35px;
+    font-size: 14px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 114, 19, 0.3);
+}
+
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 114, 19, 0.5);
+    background: linear-gradient(90deg, #ff9e4f, #f57c16);
+}
+
+.btn-home:active {
+    transform: translateY(-1px);
+}

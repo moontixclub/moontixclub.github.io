@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="suppot.css">
+    <link rel="stylesheet" href="suphelp.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Панель ответов | Moontix</title>
+</head>
+<body>
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Кнопка Назад на главную -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <div class="support-wrapper">
+        <div class="support-card" style="max-width: 1000px; text-align: center;">
+            <h2>Панель ответов на обращения</h2>
+            <p class="support-subtitle">Доступ разрешен только для администрации Moontix Team</p>
+
+            <!-- Таблица запросов -->
+            <div id="tickets-container" style="max-height: 450px; overflow-y: auto; margin-bottom: 30px; border-radius: 12px;">
+                <!-- Сюда вставится таблица -->
+            </div>
+
+            <!-- Окно для написания ответа (скрыто по умолчанию) -->
+            <div id="reply-modal" style="display: none; background: #f5f5f7; padding: 20px; border-radius: 16px; text-align: left; border: 1px solid #e5e5e7;">
+                <h4 style="margin: 0 0 10px 0; color: #1a1a1a;">Ответ для игрока: <span id="reply-target-user" style="color: #4f46e5;">Ник</span></h4>
+                <textarea id="reply-text" rows="3" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #e5e5e7; font-family: inherit; resize: vertical; outline: none; box-sizing: border-box;" placeholder="Введите текст ответа..."></textarea>
+                <div style="display: flex; gap: 10px; margin-top: 15px; justify-content: flex-end;">
+                    <button type="button" class="auth-submit-btn support-btn" onclick="closeReplyModal()" style="margin: 0; width: auto; padding: 8px 20px; background: #666 !important; box-shadow: none !important;">Отмена</button>
+                    <button type="button" class="auth-submit-btn support-btn" onclick="submitReply()" style="margin: 0; width: auto; padding: 8px 25px;">Отправить ответ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="moontixteam3">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+
+    <!-- Подключаем скрипт со списками STAFF_LIST и проверками -->
+    <script src="script.js"></script> 
+    <script>
+        let currentReplyIndex = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loggedUser = localStorage.getItem('moontix_user');
+            
+            if (typeof getPlayerRole !== "function") {
+                alert("Ошибка: Скрипт проверки должностей не подключен!");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const userRole = getPlayerRole(loggedUser);
+
+            // Защита: если зашел обычный игрок — выкидываем
+            if (userRole !== "admin" && userRole !== "mod") {
+                alert("Доступ запрещен! Эта страница только для Администрации.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            renderTicketsTable();
+        });
+
+        function renderTicketsTable() {
+            const container = document.getElementById('tickets-container');
+            const tickets = JSON.parse(localStorage.getItem('moontix_tickets')) || [];
+
+            if (tickets.length === 0) {
+                container.innerHTML = `<p style="color: #666; padding: 30px 0; font-style: italic;">Новых обращений от игроков пока нет.</p>`;
+                return;
+            }
+
+            let tableHTML = `
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; color: #333;">
+                    <thead>
+                        <tr style="background: #f5f5f7; border-bottom: 2px solid #e5e5e7;">
+                            <th style="padding: 12px 10px; color: #1a1a1a;">Дата</th>
+                            <th style="padding: 12px 10px; color: #1a1a1a;">Игрок</th>
+                            <th style="padding: 12px 10px; color: #1a1a1a;">Категория</th>
+                            <th style="padding: 12px 10px; color: #1a1a1a;">Сообщение</th>
+                            <th style="padding: 12px 10px; color: #1a1a1a;">Ответ Администрации</th>
+                            <th style="padding: 12px 10px; color: #1a1a1a; text-align:center;">Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            tickets.forEach((ticket, index) => {
+                const replyText = ticket.reply ? `<span style="color: #10b981; font-weight:600;">${ticket.reply}</span>` : `<span style="color: #ef4444; font-style:italic;">Ожидает ответа...</span>`;
+                
+                tableHTML += `
+                    <tr style="border-bottom: 1px solid #e5e5e7;">
+                        <td style="padding: 12px 10px; color: #888; font-size: 0.85rem; white-space: nowrap;">${ticket.date}</td>
+                        <td style="padding: 12px 10px; font-weight: 600; color: #4f46e5;">${ticket.username}</td>
+                        <td style="padding: 12px 10px; font-size: 0.9rem;">${ticket.category}</td>
+                        <td style="padding: 12px 10px; color: #555; max-width: 200px; word-wrap: break-word;">${ticket.message}</td>
+                        <td style="padding: 12px 10px; max-width: 200px; word-wrap: break-word;">${replyText}</td>
+                        <td style="padding: 12px 10px; text-align:center;">
+                            <button class="auth-submit-btn support-btn" onclick="openReplyModal(${index}, '${ticket.username}')" style="margin:0; width:auto; padding: 6px 14px; font-size:0.85rem; border-radius:8px;">Ответить</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `</tbody></table>`;
+            container.innerHTML = tableHTML;
+        }
+
+        function openReplyModal(index, username) {
+            currentReplyIndex = index;
+            document.getElementById('reply-target-user').textContent = username;
+            document.getElementById('reply-text').value = ""; 
+            document.getElementById('reply-modal').style.display = "block";
+        }
+
+        function closeReplyModal() {
+            document.getElementById('reply-modal').style.display = "none";
+            currentReplyIndex = null;
+        }
+
+        function submitReply() {
+            const answer = document.getElementById('reply-text').value.trim();
+            if (!answer) {
+                alert("Пожалуйста, введите текст ответа перед отправкой!");
+                return;
+            }
+
+            let tickets = JSON.parse(localStorage.getItem('moontix_tickets')) || [];
+            
+            if (currentReplyIndex !== null && tickets[currentReplyIndex]) {
+                tickets[currentReplyIndex].reply = answer;
+                localStorage.setItem('moontix_tickets', JSON.stringify(tickets));
+                
+                closeReplyModal();
+                renderTicketsTable();
+            }
+        }
+    </script>
+    <script src="adminlist.js"></script>
+</body>
+</html>

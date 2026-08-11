@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="hovers.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <title>Профиль</title>
+</head>
+<body>
+    <!-- Эффект дождя -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Навигационная кнопка назад -->
+    <a href="index.html" class="back-to-home">На главную</a>
+
+    <!-- Контейнер профиля -->
+    <div class="profile-wrapper">
+        <div class="profile-card">
+            
+            <!-- Левая колонка: Аватар и статус -->
+            <div class="profile-sidebar">
+                <div class="avatar-box">
+                    <!-- Автоматическая подгрузка 3D головы скина по нику через официальный API -->
+                    <img class="player-avatar" src="icons/ico1.png">
+                </div>
+                <h2 id="player-name">Игрок</h2>
+                <span class="player-rank">Игрок</span>
+            </div>
+
+            <!-- Правая колонка: Игровая статистика -->
+            <div class="profile-info">
+                <h3>Игровая статистика</h3>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Баланс:</span>
+                        <span class="info-value text-orange">0 Монет</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Время в игре:</span>
+                        <span class="info-value">12 ч. 43 мин.</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Сервер:</span>
+                        <span class="info-value text-green">Ванила 1.17.1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Статус аккаунта:</span>
+                        <span class="info-value">Активен</span>
+                    </div>
+                </div>
+
+                <button class="btnlogin1 logout-profile-btn" onclick="logoutPlayer()">Выйти из аккаунта</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="moontixteam178">
+        &copy; 2023 - 2026 Moontix Team
+    </div>
+
+    <script src="script4.js"></script>
+    <script src="adminlist.js"></script>
+    <script src="script5.js"></script>
+</body>
+</html>
